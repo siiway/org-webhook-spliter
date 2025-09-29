@@ -1,5 +1,10 @@
 {
 	"name": "org-webhook-spliter",
+	"author": {
+		"name": "wyf9",
+		"email": "wyf9@wyf9.top",
+		"url": "https://github.com/wyf9"
+	},
 	"version": "0.0.0",
 	"private": true,
 	"scripts": {
@@ -14,5 +19,15 @@
 		"typescript": "^5.5.2",
 		"vitest": "~3.2.0",
 		"wrangler": "^4.40.2"
+	},
+	"cloudflare": {
+		"bindings": {
+			"SECRET": {
+				"description": "推送密钥, 暂时没有作用, 可随意填写"
+			},
+			"ORG_CONFIG": {
+				"description": "基于组织的配置 (见 https://github.com/siiway/org-webhook-spliter#变量列表)"
+			}
+		}
 	}
 }
