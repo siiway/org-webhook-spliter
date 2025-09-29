@@ -4,6 +4,11 @@ interface OrgConfig {
     unknown: string[];
 }
 
-interface Config {
+interface OrgConfig {
     [org: string]: OrgConfig;
 }
+
+interface RepoConfig {
+    [repos: string[]]: string[]
+}
+// TODO split by repo

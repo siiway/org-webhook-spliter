@@ -7,5 +7,5 @@ observability.enabled = true
 placement.mode = 'smart'
 
 [vars]
-CONFIG = {}
 SECRET = ''
+ORG_CONFIG = {}
