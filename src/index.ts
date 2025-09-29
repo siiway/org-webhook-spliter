@@ -76,7 +76,10 @@ export default {
 		}
 
 		// check secret
-		// TODO
+		const secret = env.SECRET.startsWith('/') ? env.SECRET : '/' + env.SECRET;
+		if (path !== secret && secret !== '/disabled') {
+			return new Response('Wrong Secret!', { status: 401 })
+		}
 
 		// parse hook
 		const body = await request.text()

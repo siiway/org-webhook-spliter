@@ -2,7 +2,7 @@
 	"name": "org-webhook-spliter",
 	"author": {
 		"name": "wyf9",
-		"email": "wyf9@wyf9.top",
+		"email": "wyf9@siiway.top",
 		"url": "https://github.com/wyf9"
 	},
 	"version": "0.0.0",
@@ -23,10 +23,10 @@
 	"cloudflare": {
 		"bindings": {
 			"SECRET": {
-				"description": "推送密钥, 暂时没有作用, 可随意填写"
+				"description": "访问密钥, 如不为 disabled 则只允许路径为此值的请求 (详见 https://github.com/siiway/org-webhook-spliter#secret)"
 			},
 			"ORG_CONFIG": {
-				"description": "基于组织的配置 (见 https://github.com/siiway/org-webhook-spliter#变量列表)"
+				"description": "基于组织的配置 (详见 https://github.com/siiway/org-webhook-spliter#org_config)"
 			}
 		}
 	}
