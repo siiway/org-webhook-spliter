@@ -1,13 +1,14 @@
 # org-webhook-spliter
 
-一个小工具, 用于拆分组织 Webhook 到不同目标, 防止组织内部隐私信息泄漏
+Language / 语言: **中文** | [English](./README.en.md)
+
+一个 Cloudflare Worker, 用于拆分组织 Webhook 到不同目标, 防止组织内部隐私信息泄漏
 
 ## 功能
 
-- [x] 按组织下 **公开 / 私有仓库** 进行拆分
-- [x] 按 **预定义仓库列表** 进行拆分
-- [x] Secret 鉴权
-- [ ] ~~按 ??? 进行拆分~~
+- [x] [按组织下 **公开 / 私有仓库** 进行拆分](#org_config)
+- [x] [按 **预定义仓库列表** 进行拆分](#repo_config)
+- [x] [Secret 鉴权 *(路径验证)*](#secret)
 
 ## 部署
 
@@ -44,12 +45,11 @@
 
 ### `ORG_CONFIG`
 
-基于组织的配置 **(优先级低于 `REPO_CONFIG`)**
+基于组织的配置
 
 格式:
 
 ```jsonc
-// 注意: 每个组织的配置必须同时包含 private, public, others 三个目标 url 列表, 不可缺省
 {
     "siiway": { // 组织登录名 (github.com/siiway -> siiway)
         "private": [ // 私有仓库通知
