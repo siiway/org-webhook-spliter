@@ -9,6 +9,5 @@ interface OrgConfig {
 }
 
 interface RepoConfig {
-    [repos: string[]]: string[]
+    [repos: string]: string[]
 }
-// TODO split by repo

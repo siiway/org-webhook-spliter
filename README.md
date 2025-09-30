@@ -4,10 +4,9 @@
 
 ## 功能
 
-- [x] 按 组织名 进行划分
-- [x] 按 公开 / 私有仓库 进行拆分
-- [ ] 按 预定义仓库列表 进行拆分
-- [ ] Secret 鉴权
+- [x] 按组织下 **公开 / 私有仓库** 进行拆分
+- [x] 按 **预定义仓库列表** 进行拆分
+- [x] Secret 鉴权
 - [ ] ~~按 ??? 进行拆分~~
 
 ## 部署
@@ -26,9 +25,26 @@
 
 > *相当于 [Access Key](https://github.com/wyf9/hayfrp-auto-sign/blob/main/README.md#access_key) (?)*
 
+### `REPO_CONFIG`
+
+基于仓库的配置 **(优先级高于 `ORG_CONFIG`)**
+
+格式:
+
+```jsonc
+{
+    "siiway/.github": [
+        "https://discord.com/api/webhooks/1422516241670738041/xxx/github",
+        // "https://another.target" // 还可添加更多目标 url
+    ],
+    // "siiway/internal": ["https://target.url"] // 还可添加更多仓库
+}
+```
+
+
 ### `ORG_CONFIG`
 
-基于组织的配置
+基于组织的配置 **(优先级低于 `REPO_CONFIG`)**
 
 格式:
 
@@ -38,7 +54,7 @@
     "siiway": { // 组织登录名 (github.com/siiway -> siiway)
         "private": [ // 私有仓库通知
             "https://discord.com/api/webhooks/1422185291191418900/xxx/github",
-            // "https://target.url" // 还可添加更多
+            // "https://target.url" // 还可添加更多目标 url
         ],
         "public": [ // 公开仓库通知
             "https://discord.com/api/webhooks/1199938889469657118/xxx/github"
@@ -47,8 +63,8 @@
             "https://discord.com/api/webhooks/1422185291191418900/xxx/github"
         ]
     },
-    "sleepy-project": {
-        // 也可添加更多组织
-    }
+    // "sleepy-project": {
+        // 还可添加更多组织
+    // }
 }
 ```

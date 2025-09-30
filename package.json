@@ -25,6 +25,9 @@
 			"SECRET": {
 				"description": "访问密钥, 如不为 disabled 则只允许路径为此值的请求 (详见 https://github.com/siiway/org-webhook-spliter#secret)"
 			},
+			"REPO_CONFIG": {
+				"description": "基于仓库的配置 (详见 https://github.com/siiway/org-webhook-spliter#repo_config)"
+			},
 			"ORG_CONFIG": {
 				"description": "基于组织的配置 (详见 https://github.com/siiway/org-webhook-spliter#org_config)"
 			}
