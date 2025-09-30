@@ -6,9 +6,9 @@ A Cloudflare Worker to split organization webhooks to different targets, prevent
 
 ## Functions
 
-- [x] [Split by **Public / Private Repositories** in an organization]
-- [x] Split by **Single Repository**
-- [x] Secret Validation *(path verify)*
+- [x] [Split by **Public / Private Repositories** in an organization](#org_config)
+- [x] [Split by **Single Repository**](#repo_config)
+- [x] [Secret Validation *(path verify)*](#secret)
 
 ## Deploy
 

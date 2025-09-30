@@ -1,7 +1,7 @@
 interface OrgConfig {
     public: string[];
     private: string[];
-    unknown: string[];
+    others: string[];
 }
 
 interface OrgConfig {

@@ -46,8 +46,8 @@ async function send_webhook(data: string, headers: Headers, owner: string, full_
 			targets = orgConfig.public || []
 			console.info(`Matched ${targets.length} targets for public repos for ${owner} org`)
 		} else {
-			targets = orgConfig.unknown || []
-			console.info(`Matched ${targets.length} targets for unknown events for ${owner} org`)
+			targets = orgConfig.others || []
+			console.info(`Matched ${targets.length} targets for other events for ${owner} org`)
 		}
 	}
 
