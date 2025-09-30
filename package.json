@@ -23,13 +23,13 @@
 	"cloudflare": {
 		"bindings": {
 			"SECRET": {
-				"description": "访问密钥, 如不为 disabled 则只允许路径为此值的请求 (详见 https://github.com/siiway/org-webhook-spliter#secret) <br/> Access Key (if not `disabled`, will only allow requests made to this path, See also: TODO)"
+				"description": "访问密钥, 如不为 disabled 则只允许路径为此值的请求 (详见 https://github.com/siiway/org-webhook-spliter#secret) | Access Key (if not `disabled`, will only allow requests made to this path, See also: https://github.com/siiway/org-webhook-spliter/blob/main/README.en.md#secret)"
 			},
 			"REPO_CONFIG": {
-				"description": "基于仓库的配置 (详见 https://github.com/siiway/org-webhook-spliter#repo_config) \n Forwarding config for single repository"
+				"description": "基于仓库的配置 (详见 https://github.com/siiway/org-webhook-spliter#repo_config) | Forwarding config for single repository (See also: https://github.com/siiway/org-webhook-spliter/blob/main/README.en.md#repo_config)"
 			},
 			"ORG_CONFIG": {
-				"description": "基于组织的配置 (详见 https://github.com/siiway/org-webhook-spliter#org_config) \n\n Forwarding config for organiztions"
+				"description": "基于组织的配置 (详见 https://github.com/siiway/org-webhook-spliter#org_config) | Forwarding config for organiztions (See also: https://github.com/siiway/org-webhook-spliter/blob/main/README.en.md#org_config)"
 			}
 		}
 	}

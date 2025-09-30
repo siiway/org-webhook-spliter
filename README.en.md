@@ -7,8 +7,8 @@ A Cloudflare Worker to split organization webhooks to different targets, prevent
 ## Functions
 
 - [x] [Split by **Public / Private Repositories** in an organization]
-- [ ] Split by **Single Repository**
-- [ ] Secret Validation *(path verify)*
+- [x] Split by **Single Repository**
+- [x] Secret Validation *(path verify)*
 
 ## Deploy
 
@@ -40,9 +40,9 @@ Format:
 
 ### `ORG_CONFIG`
 
-基于组织的配置
+Forwarding config for organization
 
-格式:
+Format:
 
 ```jsonc
 {
