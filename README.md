@@ -9,6 +9,10 @@ Language / 语言: **中文** | [English](./README.en.md)
 - [x] [按组织下 **公开 / 私有仓库** 进行拆分](#org_config)
 - [x] [按 **预定义仓库列表** 进行拆分](#repo_config)
 - [x] [Secret 鉴权 *(路径验证)*](#secret)
+- [x] 使用 yaml / json 配置文件
+- [ ] 自定义 header (目前只支持全局设置, 因为~~不想动~~ 以后要重置成 workflow 版来防止 429)
+- [ ] 给每个 hook 单独配置 secret
+- [ ] 给每个 hook 设置名称 (防止返回中泄漏 url)
 
 ## 部署
 

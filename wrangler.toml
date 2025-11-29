@@ -2,6 +2,9 @@ name = 'org-webhook-spliter'
 main = 'src/index.ts'
 compatibility_date = '2025-09-27'
 
+# https://developers.cloudflare.com/workers/wrangler/configuration/#source-of-truth
+keep_vars = true
+
 [observability]
 enabled = true
 logs = { enabled = true }
