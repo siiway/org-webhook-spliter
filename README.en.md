@@ -63,3 +63,18 @@ Format:
     // }
 }
 ```
+
+### `HEADERS`
+
+Request headers config
+
+Format:
+
+```jsonc
+{
+    "Authorization": "Bearer TOKEN",
+    "Content-Type": "application/json",
+    "X-Delete-Me": null, // Set to null to remove A existing header
+    // ...
+}
+```

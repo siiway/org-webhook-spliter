@@ -11,3 +11,7 @@ interface OrgConfig {
 interface RepoConfig {
     [repos: string]: string[]
 }
+
+interface HeadersConfig {
+    [key: string]: string | null
+}

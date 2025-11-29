@@ -29,6 +29,16 @@ async function send_webhook(data: string, headers: Headers, owner: string, full_
 		}
 	}
 
+	// get headers
+	const cfg_headers: HeadersConfig = await parse_config(env.HEADERS);
+	for (const [key, value] of Object.entries(cfg_headers)) {
+		if (value === null) { // null -> delete
+			headers.delete(key);
+		} else {
+			headers.set(key, value);
+		}
+	}
+
 	var errors = [];
 	for (const url of targets) {
 		try {

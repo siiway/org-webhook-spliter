@@ -6,7 +6,7 @@ import yaml
 import json
 import typing as t
 
-content: dict[t.Literal['secret', 'org-config', 'repo-config'], dict]
+content: dict[t.Literal['secret', 'org-config', 'repo-config', 'headers'], dict]
 
 try:
     with open('config.local.yaml', 'r', encoding='utf-8') as f:
@@ -27,6 +27,10 @@ if content.get('org-config'):
 if content.get('repo-config'):
     org_conf = yaml.safe_dump(content.get('repo-config')).replace('\n', '\\n')
     generated += f'REPO_CONFIG={org_conf}\n'
+
+if content.get('headers'):
+    org_conf = yaml.safe_dump(content.get('headers')).replace('\n', '\\n')
+    generated += f'HEADERS={org_conf}\n'
 
 with open('.dev.vars', 'w', encoding='utf-8') as f:
     f.write(generated)

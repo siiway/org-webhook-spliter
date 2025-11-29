@@ -4,6 +4,7 @@ export interface Env {
 	SECRET: string;
 	ORG_CONFIG: string;
 	REPO_CONFIG: string;
+    HEADERS: string;
 }
 
 export async function send_request(url: string, payload: string, headers: Headers) {

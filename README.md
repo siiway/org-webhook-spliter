@@ -10,7 +10,7 @@ Language / 语言: **中文** | [English](./README.en.md)
 - [x] [按 **预定义仓库列表** 进行拆分](#repo_config)
 - [x] [Secret 鉴权 *(路径验证)*](#secret)
 - [x] 使用 yaml / json 配置文件
-- [ ] 自定义 header (目前只支持全局设置, 因为~~不想动~~ 以后要重置成 workflow 版来防止 429)
+- [X] 自定义 header (目前只支持全局设置, 因为~~不想动~~ 以后要重置成 workflow 版来彻底防止 429)
 - [ ] 给每个 hook 单独配置 secret
 - [ ] 给每个 hook 设置名称 (防止返回中泄漏 url)
 
@@ -68,5 +68,20 @@ Language / 语言: **中文** | [English](./README.en.md)
     // "sleepy-project": {
         // 还可添加更多组织
     // }
+}
+```
+
+### `HEADERS`
+
+请求头设置
+
+格式:
+
+```jsonc
+{
+    "Authorization": "Bearer TOKEN",
+    "Content-Type": "application/json",
+    "X-Delete-Me": null, // 设置为 null 来删除已有 header
+    // ...
 }
 ```
