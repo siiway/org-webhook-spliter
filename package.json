@@ -2,7 +2,7 @@
 	"name": "org-webhook-spliter",
 	"author": {
 		"name": "wyf9",
-		"email": "wyf9@siiway.top",
+		"email": "wyf9@siiway.org",
 		"url": "https://github.com/wyf9"
 	},
 	"version": "0.0.0",
@@ -15,10 +15,10 @@
 		"types": "wrangler types"
 	},
 	"devDependencies": {
-		"@cloudflare/vitest-pool-workers": "^0.8.19",
-		"typescript": "^5.5.2",
-		"vitest": "~3.2.0",
-		"wrangler": "^4.40.2"
+		"@cloudflare/vitest-pool-workers": "^0.8.71",
+		"typescript": "^5.9.3",
+		"vitest": "~3.2.4",
+		"wrangler": "^4.51.0"
 	},
 	"cloudflare": {
 		"bindings": {
@@ -32,5 +32,9 @@
 				"description": "基于组织的配置 (详见 https://github.com/siiway/org-webhook-spliter#org_config) | Forwarding config for organiztions (See also: https://github.com/siiway/org-webhook-spliter/blob/main/README.en.md#org_config)"
 			}
 		}
+	},
+	"dependencies": {
+		"@types/js-yaml": "^4.0.9",
+		"js-yaml": "^4.1.1"
 	}
 }

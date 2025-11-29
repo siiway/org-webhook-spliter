@@ -24,8 +24,6 @@ Language / 语言: **中文** | [English](./README.en.md)
 
 如设置 SECRET 为 `abcd` 或 `/abcd`, 则访问 `/abcd` 可正常转发请求, 其他路径 (`/` 除外) 返回 `Wrong Secret!` 并拒绝转发请求
 
-> *相当于 [Access Key](https://github.com/wyf9/hayfrp-auto-sign/blob/main/README.md#access_key) (?)*
-
 ### `REPO_CONFIG`
 
 基于仓库的配置 **(优先级高于 `ORG_CONFIG`)**
