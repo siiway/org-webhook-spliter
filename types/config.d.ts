@@ -1,17 +1,19 @@
-interface OrgConfig {
-    public: string[];
-    private: string[];
-    others: string[];
+interface SingleHook {
+	name: string | null = null;
+	url: string;
+	headers: Headers = {};
 }
 
 interface OrgConfig {
-    [org: string]: OrgConfig;
+	public: SingleHook[];
+	private: SingleHook[];
+	others: SingleHook[];
+}
+
+interface OrgConfig {
+	[org: string]: OrgConfig;
 }
 
 interface RepoConfig {
-    [repos: string]: string[]
-}
-
-interface HeadersConfig {
-    [key: string]: string | null
+	[repos: string]: SingleHook[];
 }

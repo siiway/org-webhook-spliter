@@ -4,16 +4,29 @@ export interface Env {
 	SECRET: string;
 	ORG_CONFIG: string;
 	REPO_CONFIG: string;
-    HEADERS: string;
+	HEADERS: string;
 }
 
-export async function send_request(url: string, payload: string, headers: Headers) {
+export async function send_request(hook: SingleHook, payload: string, headers: Headers) {
 	try {
-		const response = await fetch(url, {
+		// get hook's headers & append/replace them
+		let hook_headers = hook.headers || {};
+		for (const [key, value] of Object.entries(hook_headers)) {
+			if (value === null) {
+				// null -> delete
+				headers.delete(key);
+			} else {
+				headers.set(key, value);
+			}
+		}
+		if (!headers.has('Content-Type')) {
+			headers.set('Content-Type', 'application/json');
+		}
+
+		const response = await fetch(hook.url, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json',
-				'X-GitHub-Event': headers.get('X-GitHub-Event') || '',
 			},
 			body: payload,
 		});

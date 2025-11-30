@@ -11,8 +11,8 @@ Language / 语言: **中文** | [English](./README.en.md)
 - [x] [Secret 鉴权 *(路径验证)*](#secret)
 - [x] 使用 yaml / json 配置文件
 - [X] 自定义 header (目前只支持全局设置, 因为~~不想动~~ 以后要重置成 workflow 版来彻底防止 429)
+- [x] 给每个 hook 设置名称 (防止返回中泄漏 url) & headers
 - [ ] 给每个 hook 单独配置 secret
-- [ ] 给每个 hook 设置名称 (防止返回中泄漏 url)
 
 ## 部署
 
@@ -37,10 +37,12 @@ Language / 语言: **中文** | [English](./README.en.md)
 ```jsonc
 {
     "siiway/.github": [
-        "https://discord.com/api/webhooks/1422516241670738041/xxx/github",
-        // "https://another.target" // 还可添加更多目标 url
+        {
+            "url": "https://discord.com/api/webhooks/1422516241670738041/xxx/github"
+        },
+        // 还可添加更多目标 url
     ],
-    // "siiway/internal": ["https://target.url"] // 还可添加更多仓库
+    // "siiway/internal": [...] // 还可添加更多仓库
 }
 ```
 
@@ -55,14 +57,25 @@ Language / 语言: **中文** | [English](./README.en.md)
 {
     "siiway": { // 组织登录名 (github.com/siiway -> siiway)
         "private": [ // 私有仓库通知
-            "https://discord.com/api/webhooks/1422185291191418900/xxx/github",
-            // "https://target.url" // 还可添加更多目标 url
+            {
+                "name": "dc-webhook",
+                "url": "https://discord.com/api/webhooks/1422185291191418900/xxx/github"
+            },
+            // 还可添加更多目标 url
         ],
         "public": [ // 公开仓库通知
-            "https://discord.com/api/webhooks/1199938889469657118/xxx/github"
+            {
+                "name": "dc-webhook-pub",
+                "url": "https://discord.com/api/webhooks/1199938889469657118/xxx/github",
+                "headers": {
+                    "Authorization": "Bot My.Bot.Token" // 你或许可以传递授权标头来绕过基于 ip 的速率限制?
+                }
+            }
         ],
         "others": [ // 不与具体仓库关联的通知
-            "https://discord.com/api/webhooks/1422185291191418900/xxx/github"
+            {
+                "url": "https://discord.com/api/webhooks/1422185291191418900/xxx/github" // 如果你觉得在返回中显示这个 url 不危险
+            }
         ]
     },
     // "sleepy-project": {

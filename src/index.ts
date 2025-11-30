@@ -30,7 +30,7 @@ async function send_webhook(data: string, headers: Headers, owner: string, full_
 	}
 
 	// get headers
-	const cfg_headers: HeadersConfig = await parse_config(env.HEADERS);
+	const cfg_headers: Headers = await parse_config(env.HEADERS);
 	for (const [key, value] of Object.entries(cfg_headers)) {
 		if (value === null) { // null -> delete
 			headers.delete(key);
@@ -40,13 +40,13 @@ async function send_webhook(data: string, headers: Headers, owner: string, full_
 	}
 
 	var errors = [];
-	for (const url of targets) {
+	for (const hook of targets) {
 		try {
-			var status = await send_request(url, data, headers);
-			console.info(`Sent webhook to ${url}: ${status}`);
+			var status = await send_request(hook, data, headers);
+			console.info(`Sent webhook to ${hook.name || hook.url}: ${status}`);
 		} catch (e) {
-			console.error(`Error sending webhook to ${url}: ${e}`);
-			errors.push(`${url}: ${e}`);
+			console.error(`Error sending webhook to ${hook.name || hook.url}: ${e}`);
+			errors.push(`${hook.name || hook.url}: ${e}`);
 		}
 	}
 

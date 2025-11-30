@@ -31,10 +31,12 @@ Format:
 ```jsonc
 {
     "siiway/.github": [
-        "https://discord.com/api/webhooks/1422516241670738041/xxx/github",
-        // "https://another.target"
+        {
+            "url": "https://discord.com/api/webhooks/1422516241670738041/xxx/github"
+        },
+        // more target hook urls
     ],
-    // "siiway/internal": ["https://target.url"]
+    // "siiway/internal": [...] // more repos
 }
 ```
 
@@ -48,14 +50,25 @@ Format:
 {
     "siiway": { // Org login name (github.com/siiway -> siiway)
         "private": [ // Notifications for private repos
-            "https://discord.com/api/webhooks/1422185291191418900/xxx/github",
-            // "https://target.url"
+            {
+                "name": "dc-webhook",
+                "url": "https://discord.com/api/webhooks/1422185291191418900/xxx/github"
+            },
+            // {"url": "https://target.url"}
         ],
         "public": [ // Notifications for public repos
-            "https://discord.com/api/webhooks/1199938889469657118/xxx/github"
+            {
+                "name": "dc-webhook-pub",
+                "url": "https://discord.com/api/webhooks/1199938889469657118/xxx/github",
+                "headers": {
+                    "Authorization": "Bot My.Bot.Token" // to pass rate limit (that based by ip address)
+                }
+            }
         ],
         "others": [ // Notifications that are not associated with a repo
-            "https://discord.com/api/webhooks/1422185291191418900/xxx/github"
+            {
+                "url": "https://discord.com/api/webhooks/1422185291191418900/xxx/github" // if you think url leaking is doesn't matter for this hook
+            }
         ]
     },
     // "sleepy-project": {
