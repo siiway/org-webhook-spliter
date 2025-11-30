@@ -54,3 +54,17 @@ to generate `.dev.vars` automatically.
 <!-- in `.env` or `.dev.vars`.
 
 > https://developers.cloudflare.com/workers/wrangler/environments/#secrets-in-local-development -->
+
+## Vars Tip
+
+If you're using Git Connection to update automatically, use `wrangler secret` to put config to prevent overriding:
+
+```bash
+wrangler secret put SECRET
+# Then input your secret value, and press Enter
+```
+
+```bash
+# Or read the value from file:
+echo ./org.local.yaml | wrangler secret put ORG_CONFIG
+```
