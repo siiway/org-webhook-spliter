@@ -80,7 +80,15 @@ export default {
 
 		// try forward webhook
 		try {
-			const forwardHeaders = new Headers(request.headers);
+			const forwardHeaders = new Headers({
+				'User-Agent': 'org-webhook-spliter (+https://github.com/siiway/org-webhook-spliter)',
+				Accept: '*/*',
+				'X-GitHub-Delivery': request.headers.get('X-GitHub-Delivery') || 'unknown',
+				'X-GitHub-Event': request.headers.get('X-GitHub-Event') || 'unknown',
+				'X-GitHub-Hook-ID': request.headers.get('X-GitHub-Hook-ID') || 'unknown',
+				'X-GitHub-Hook-Installation-Target-ID': request.headers.get('X-GitHub-Hook-Installation-Target-ID') || 'unknown',
+				'X-GitHub-Hook-Installation-Target-Type': request.headers.get('X-GitHub-Hook-Installation-Target-Typet') || 'unknown',
+			});
 			const cfg_headers: Headers = await parse_config(env.HEADERS);
 			for (const [key, value] of Object.entries(cfg_headers)) {
 				if (value === null) {
