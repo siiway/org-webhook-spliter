@@ -80,22 +80,24 @@ export default {
 
 		// try forward webhook
 		try {
-			const forwardHeaders = new Headers({
-				'User-Agent': 'org-webhook-spliter (+https://github.com/siiway/org-webhook-spliter)',
-				Accept: '*/*',
-				'X-GitHub-Delivery': request.headers.get('X-GitHub-Delivery') || 'unknown',
-				'X-GitHub-Event': request.headers.get('X-GitHub-Event') || 'unknown',
-				'X-GitHub-Hook-ID': request.headers.get('X-GitHub-Hook-ID') || 'unknown',
-				'X-GitHub-Hook-Installation-Target-ID': request.headers.get('X-GitHub-Hook-Installation-Target-ID') || 'unknown',
-				'X-GitHub-Hook-Installation-Target-Type': request.headers.get('X-GitHub-Hook-Installation-Target-Typet') || 'unknown',
-			});
-			const cfg_headers: Headers = await parse_config(env.HEADERS);
-			for (const [key, value] of Object.entries(cfg_headers)) {
-				if (value === null) {
-					forwardHeaders.delete(key);
+			// 关键修复：从零开始，不要继承 GitHub 的任何垃圾头
+			const forwardHeaders = new Headers();
+
+			// 应用全局 HEADERS 配置（如果有的话）
+			const globalHeaders: Headers = await parse_config(env.HEADERS || '{}');
+			console.log(`Global HEADERS parsed, keys: ${Object.keys(globalHeaders).length}`);
+			for (const [k, v] of Object.entries(globalHeaders)) {
+				if (v === null) {
+					forwardHeaders.delete(k);
 				} else {
-					forwardHeaders.set(key, value);
+					forwardHeaders.set(k, v);
+					console.log(`[Global] SET header: ${k}`);
 				}
+			}
+
+			// 强制加上友好的 UA（强烈建议）
+			if (!forwardHeaders.has('User-Agent')) {
+				forwardHeaders.set('User-Agent', 'org-webhook-spliter (+https://github.com/siiway/org-webhook-spliter)');
 			}
 
 			await send_webhook(body, forwardHeaders, owner, full_name, private_repo, env);

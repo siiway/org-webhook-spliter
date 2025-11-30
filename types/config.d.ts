@@ -1,8 +1,8 @@
-interface SingleHook {
-	name?: string; // 可选
-	url: string; // 必填
-	headers?: Record<string, string | null>; // 可选，支持 null 删除
-}
+// interface SingleHook {
+// 	name?: string; // 可选
+// 	url: string; // 必填
+// 	headers?: Record<string, string | null>; // 可选，支持 null 删除
+// }
 
 interface OrgRepoConfig {
 	public?: SingleHook[];
