@@ -20,7 +20,7 @@ Language / 语言: **中文** | [English](./README.en.md)
 
 [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/siiway/org-webhook-spliter)
 
-## 变量列表
+## Secrets 列表
 
 ### `SECRET`
 
@@ -98,3 +98,6 @@ Language / 语言: **中文** | [English](./README.en.md)
     // ...
 }
 ```
+
+> [!TIP]
+> 也支持使用 YAML 配置.

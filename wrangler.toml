@@ -11,9 +11,3 @@ logs = { enabled = true }
 
 [placement]
 mode = 'smart'
-
-[vars]
-SECRET = 'disabled'
-ORG_CONFIG = '{}'
-REPO_CONFIG = '{}'
-HEADERS = '{}'

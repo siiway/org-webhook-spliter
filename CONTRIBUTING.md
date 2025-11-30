@@ -55,7 +55,7 @@ to generate `.dev.vars` automatically.
 
 > https://developers.cloudflare.com/workers/wrangler/environments/#secrets-in-local-development -->
 
-## Vars Tip
+## Secrets Tip
 
 If you're using Git Connection to update automatically, use `wrangler secret` to put config to prevent overriding:
 

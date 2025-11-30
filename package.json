@@ -30,6 +30,9 @@
 			},
 			"ORG_CONFIG": {
 				"description": "基于组织的配置 (详见 https://github.com/siiway/org-webhook-spliter#org_config) | Forwarding config for organiztions (See also: https://github.com/siiway/org-webhook-spliter/blob/main/README.en.md#org_config)"
+			},
+			"HEADERS": {
+				"description": "全局请求 Headers 配置 (详见 https://github.com/siiway/org-webhook-spliter#headers) | Global request headers config (See also: https://github.com/siiway/org-webhook-spliter/blob/main/README.en.md#headers)"
 			}
 		}
 	},
