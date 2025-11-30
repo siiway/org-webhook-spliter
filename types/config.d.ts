@@ -1,19 +1,19 @@
 interface SingleHook {
-	name: string | null = null;
-	url: string;
-	headers: Headers = {};
+	name?: string; // 可选
+	url: string; // 必填
+	headers?: Record<string, string | null>; // 可选，支持 null 删除
+}
+
+interface OrgRepoConfig {
+	public?: SingleHook[];
+	private?: SingleHook[];
+	others?: SingleHook[];
 }
 
 interface OrgConfig {
-	public: SingleHook[];
-	private: SingleHook[];
-	others: SingleHook[];
-}
-
-interface OrgConfig {
-	[org: string]: OrgConfig;
+	[org: string]: OrgRepoConfig;
 }
 
 interface RepoConfig {
-	[repos: string]: SingleHook[];
+	[fullName: string]: SingleHook[];
 }

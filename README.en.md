@@ -31,9 +31,7 @@ Format:
 ```jsonc
 {
     "siiway/.github": [
-        {
-            "url": "https://discord.com/api/webhooks/1422516241670738041/xxx/github"
-        },
+        "https://discord.com/api/webhooks/1422516241670738041/xxx/github"
         // more target hook urls
     ],
     // "siiway/internal": [...] // more repos

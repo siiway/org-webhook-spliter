@@ -37,9 +37,7 @@ Language / 语言: **中文** | [English](./README.en.md)
 ```jsonc
 {
     "siiway/.github": [
-        {
-            "url": "https://discord.com/api/webhooks/1422516241670738041/xxx/github"
-        },
+        "https://discord.com/api/webhooks/1422516241670738041/xxx/github"
         // 还可添加更多目标 url
     ],
     // "siiway/internal": [...] // 还可添加更多仓库
@@ -100,4 +98,5 @@ Language / 语言: **中文** | [English](./README.en.md)
 ```
 
 > [!TIP]
-> 也支持使用 YAML 配置.
+> 也支持使用 YAML 配置 <br/>
+> 详见: [`types/config.d.ts`](./types/config.d.ts)
