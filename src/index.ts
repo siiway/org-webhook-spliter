@@ -29,16 +29,6 @@ async function send_webhook(data: string, headers: Headers, owner: string, full_
 		}
 	}
 
-	// get headers
-	const cfg_headers: Headers = await parse_config(env.HEADERS);
-	for (const [key, value] of Object.entries(cfg_headers)) {
-		if (value === null) { // null -> delete
-			headers.delete(key);
-		} else {
-			headers.set(key, value);
-		}
-	}
-
 	var errors = [];
 	for (const hook of targets) {
 		try {
@@ -90,7 +80,17 @@ export default {
 
 		// try forward webhook
 		try {
-			await send_webhook(body, request.headers, owner, full_name, private_repo, env);
+			const forwardHeaders = new Headers(request.headers);
+			const cfg_headers: Headers = await parse_config(env.HEADERS);
+			for (const [key, value] of Object.entries(cfg_headers)) {
+				if (value === null) {
+					forwardHeaders.delete(key);
+				} else {
+					forwardHeaders.set(key, value);
+				}
+			}
+
+			await send_webhook(body, forwardHeaders, owner, full_name, private_repo, env);
 		} catch (e) {
 			console.error(`Failed: ${e}`);
 			return new Response(`Failed: ${e}`, { status: 500 });
