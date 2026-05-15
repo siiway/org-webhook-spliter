@@ -938,8 +938,8 @@ packages:
     resolution: {integrity: sha512-h5k/5U50IJJFpzfL6nO9jaaumfjO/f2NjK/oYB2Djzm4p9L+3T9qWpZqZ2hAbLPuuYq9wrU08WQyBTL5GbPk5Q==}
     engines: {node: '>=6'}
 
-  defu@6.1.4:
-    resolution: {integrity: sha512-mEQCMmwJu317oSz8CwdIOdwf3xMif1ttiM8LTufzc3g6kR+9Pe236twL8j3IYT1F7GfRgGcW6MWxzZjLIkuHIg==}
+  defu@6.1.7:
+    resolution: {integrity: sha512-7z22QmUWiQ/2d0KkdYmANbRUVABpZ9SNYyH5vx6PZ+nE5bcC0l7uFvEfHlyld/HcGBFTL536ClDt3DEcSlEJAQ==}
 
   detect-libc@2.1.2:
     resolution: {integrity: sha512-Btj2BOOO83o3WyH59e8MgXsxEQVcarkUOpEYrubB0urwnN10yQ364rsiByU11nZlqWYZm05i/of7io4mzihBtQ==}
@@ -1889,7 +1889,7 @@ snapshots:
 
   deep-eql@5.0.2: {}
 
-  defu@6.1.4: {}
+  defu@6.1.7: {}
 
   detect-libc@2.1.2: {}
 
@@ -2183,7 +2183,7 @@ snapshots:
 
   unenv@2.0.0-rc.21:
     dependencies:
-      defu: 6.1.4
+      defu: 6.1.7
       exsolve: 1.0.8
       ohash: 2.0.11
       pathe: 2.0.3
